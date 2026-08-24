@@ -6,6 +6,22 @@ The platform combines a **React frontend**, **FastAPI backend**, **PostgreSQL da
 
 ---
 
+## 🌐 Live Demo
+
+**🚀 [CodeForge — Live Website](https://codeforge-mqjh.onrender.com)**
+
+Try the deployed platform here:
+
+👉 **https://codeforge-mqjh.onrender.com**
+
+### 🔗 Backend API
+
+**[CodeForge Backend API](https://codeforge-backend-xwsj.onrender.com)**
+
+The backend provides the REST API used by the production frontend.
+
+---
+
 ## 🚀 Features
 
 ### 👤 User Authentication & Account Management
