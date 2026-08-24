@@ -1,0 +1,44 @@
+.navbar {
+  width: 100%;
+  height: 64px;
+  background: rgba(14, 11, 11, 0.18);
+  border-bottom: 1px solid rgba(23, 33, 43, 0.18);
+  backdrop-filter: blur(8px);
+}
+
+.navbar-inner {
+  max-width: 1200px;
+  height: 63px;
+  margin: 0 auto;
+  padding: 0 24px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.navbar-brand {
+  display: flex;
+  align-items: center;
+}
+
+.brand-logo {
+  width: 250px;
+  height: 100px;
+  object-fit: contain;
+}
+
+.navbar-links {
+  display: flex;
+  align-items: center;
+  gap: 28px;
+}
+
+.navbar-links a {
+  font-size: 20px;
+  color: #0c3963;
+  font-weight: 700;
+}
+
+.navbar-links a:hover {
+  color: #5f1d1d;
+}

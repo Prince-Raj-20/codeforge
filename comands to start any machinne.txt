@@ -1,0 +1,17 @@
+FastAPI or uvicorn:
+cd /d P:\RESUME_PROJECTS\Coding_platform_project\backend
+.venv\Scripts\activate
+uvicorn app.main:app --reload
+http://127.0.0.1:8000/docs
+
+
+#DataBase or PostgreSQL:
+cd /d P:\RESUME_PROJECTS\Coding_platform_project\backend
+P:\PostgreSQL\18.6\bin\psql.exe -U postgres -d coding_platform
+enter pass : 
+
+
+#React/npm/rontend:
+cd /d P:\RESUME_PROJECTS\Coding_platform_project\frontend
+npm start
+http://localhost:3000

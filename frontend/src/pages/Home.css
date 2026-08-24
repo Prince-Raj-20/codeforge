@@ -1,0 +1,104 @@
+.home-page {
+  height: calc(100vh - 65px);
+  overflow: hidden;
+}
+
+.hero {
+  width: 100%;
+  height: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 40px 24px;
+  box-sizing: border-box;
+  overflow: hidden;
+}
+
+.hero-content {
+  width: 100%;
+  max-width: 760px;
+  text-align: center;
+}
+
+.hero-label {
+  margin: 0 0 18px;
+  font-size: 80px;
+  font-weight: 700;
+  letter-spacing: 2px;
+  color: #0c6ea3;
+}
+
+.hero h1 {
+  margin: 0;
+  font-size: clamp(42px, 6vw, 68px);
+  line-height: 1.05;
+  font-weight: 700;
+  color: #17212b;
+}
+
+.hero-description {
+  max-width: 600px;
+  margin: 24px auto 0;
+  font-size: 18px;
+  line-height: 1.7;
+  color: #263746;
+}
+
+.hero-buttons {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 16px;
+  margin-top: 34px;
+}
+
+.primary-button,
+.secondary-button {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  min-width: 135px;
+  padding: 12px 22px;
+  border-radius: 7px;
+  font-size: 15px;
+  font-weight: 600;
+  transition: 0.2s ease;
+}
+
+.primary-button {
+  background: #17212b;
+  color: #ffffff;
+}
+
+.primary-button:hover {
+  background: #263746;
+}
+
+.secondary-button {
+  background: rgba(255, 255, 255, 0.28);
+  color: #17212b;
+  border: 1px solid rgba(23, 33, 43, 0.35);
+}
+
+.secondary-button:hover {
+  background: rgba(255, 255, 255, 0.45);
+}
+
+@media (max-width: 600px) {
+  .hero h1 {
+    font-size: 38px;
+  }
+
+  .hero-description {
+    font-size: 16px;
+  }
+
+  .hero-buttons {
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .hero-buttons a {
+    width: 180px;
+  }
+}
