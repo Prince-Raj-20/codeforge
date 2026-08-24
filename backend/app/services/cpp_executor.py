@@ -1,5 +1,4 @@
 import requests
-import time
 
 from app.config import settings
 
@@ -31,8 +30,6 @@ def execute_cpp_code(
     Execute C++17 code using OnlineCompiler.io.
     """
 
-    start_time = time.perf_counter()
-
     try:
         response = requests.post(
             ONLINE_COMPILER_URL,
@@ -48,10 +45,6 @@ def execute_cpp_code(
             timeout=35
         )
 
-        execution_time = int(
-            (time.perf_counter() - start_time) * 1000
-        )
-
         # OnlineCompiler HTTP/API failure
         if response.status_code != 200:
             return {
@@ -61,7 +54,7 @@ def execute_cpp_code(
                     f"OnlineCompiler API error "
                     f"({response.status_code})"
                 ),
-                "execution_time": execution_time,
+                "execution_time": 0,
                 "executable_path": None,
                 "temp_dir": None
             }
@@ -72,6 +65,13 @@ def execute_cpp_code(
         error = result.get("error", "")
         api_status = result.get("status", "")
         exit_code = result.get("exit_code")
+
+        # Actual C++ execution time reported by OnlineCompiler.
+        # Example: "0.0221" seconds = 22.1 ms.
+        try:
+            execution_time = float(result.get("time", 0)) * 1000
+        except (TypeError, ValueError):
+            execution_time = 0
 
         # Successful execution
         if api_status == "success" and exit_code == 0:
@@ -132,9 +132,7 @@ def execute_cpp_code(
             "status": "Execution Error",
             "output": "",
             "error": "OnlineCompiler request timed out.",
-            "execution_time": int(
-                (time.perf_counter() - start_time) * 1000
-            ),
+            "execution_time": 0,
             "executable_path": None,
             "temp_dir": None
         }
@@ -144,9 +142,7 @@ def execute_cpp_code(
             "status": "Execution Error",
             "output": "",
             "error": "Unable to reach OnlineCompiler.",
-            "execution_time": int(
-                (time.perf_counter() - start_time) * 1000
-            ),
+            "execution_time": 0,
             "executable_path": None,
             "temp_dir": None
         }
@@ -156,9 +152,7 @@ def execute_cpp_code(
             "status": "Execution Error",
             "output": "",
             "error": "An internal execution error occurred.",
-            "execution_time": int(
-                (time.perf_counter() - start_time) * 1000
-            ),
+            "execution_time": 0,
             "executable_path": None,
             "temp_dir": None
         }
